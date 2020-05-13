@@ -1,0 +1,21 @@
+ version: 0.2
+ phases:
+    install:
+      runtime-versions:
+        nodejs: 12
+    pre_build: 
+      commands:
+        - yarn install
+    build: 
+      commands:
+        - yarn build
+    post_build:
+      commands:
+        # Add cache control headers to only those objects which will need to be cached in the browser.
+        - aws s3 sync  dist/ s3://$BUCKET_NAME --exclude "*" --include "*.jpg" --include "*.js" --include "*.css" --include "*.pdf"  --include "*.svg" --include "*.png" --cache-control max-age=1800  --delete --region $AWS_REGION
+        - aws s3 sync  dist/ s3://$BUCKET_NAME/  --exclude "*.jpg" --exclude "*.js" --exclude "*.css" --exclude "*.pdf"  --exclude "*.svg"  --exclude "*.png" --delete --region $AWS_REGION
+        - echo Build completed on `date`
+ artifacts:
+    files:
+      - '**/*'
+    base-directory: dist
