@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "http://pragyavan.org.s3-website.ap-south-1.amazonaws.com/"
 languageCode = "en-us"
 languageLang = "en"
 title = "Homepage"
