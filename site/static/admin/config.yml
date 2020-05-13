@@ -1,10 +1,11 @@
 backend:
-  name: github
-  repo: Kinnary-Raichura/pragyavan-website
-  base_url: https://2gz3dujibj.execute-api.ap-south-1.amazonaws.com/prod
-  auth_endpoint: /oauth-redirect
-  preview_context: ci/preview
-  branch: master
+  # name: github
+  # repo: Kinnary-Raichura/pragyavan-website
+  # base_url: https://2gz3dujibj.execute-api.ap-south-1.amazonaws.com/prod
+  # auth_endpoint: /oauth-redirect
+  # preview_context: ci/preview
+  # branch: master
+  name: git-gateway
 
 media_folder: "site/static/img" # Folder where user uploaded files should go
 public_folder: "img"
